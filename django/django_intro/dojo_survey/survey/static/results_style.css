@@ -1,0 +1,23 @@
+* {
+    margin: 0px;
+    }
+    
+    #container{
+        border: 7px solid black;
+        width: 400px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    h3{
+        text-decoration: underline;
+    }
+
+    .info{
+        display:flex;
+        justify-content: space-between;
+    }
+
+    button{
+        margin-left: 300px;
+    }

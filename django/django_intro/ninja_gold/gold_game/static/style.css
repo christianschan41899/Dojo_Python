@@ -1,0 +1,47 @@
+*{
+    margin: 0px;
+    }
+    #game_container{
+        padding: 20px;
+    }
+
+    #gold_display{
+        margin-bottom: 30px;
+    }
+
+    #choice_container{
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 500px;
+    }
+
+    .choice{
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 20px;
+        line-height: 40px;
+        height: 200px;
+        width: 200px;
+        border: 3px solid black;
+    }
+
+    .choice form{
+        margin:auto;
+        height: auto;
+    }
+
+    .red{
+        color: red;
+    }
+
+    .green{
+        color: green;
+    }
+    #action_log{
+        border: 3px solid black;
+        height: 300px;
+        width: 1050px;
+        overflow-y: scroll;
+        margin-bottom: 20px;
+    }

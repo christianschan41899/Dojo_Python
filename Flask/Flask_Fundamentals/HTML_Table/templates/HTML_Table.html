@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>HTML Table</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class = "container">
+            <h1 class = "text-center">HTML Table</h1>
+            <div class = "row">
+                <div class = "col-4 border border-dark text-center bg-dark text-white">
+                    <p class = "table_header">First Name</p>
+                </div>
+                <div class = "col-4 border border-dark text-center bg-dark text-white">
+                    <p class = "table_header">Last Name</p>
+                </div>
+                <div class = "col-4 border border-dark text-center bg-dark text-white">
+                    <p class = "table_header">Full Name</p>
+                </div>
+            </div>
+            {% for user in users %}
+            <div class = "row">
+                <div class = "col-4 border border-dark text-center bg-secondary text-white">
+                    <p>{{user.get('first_name')}}</p>
+                </div>
+                <div class = "col-4 border border-dark text-center bg-secondary text-white">
+                    <p>{{user.get('last_name')}}</p>
+                </div>
+                <div class = "col-4 border border-dark text-center bg-secondary text-white">
+                    <p>{{user.get('first_name') + " " + user.get('last_name')}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

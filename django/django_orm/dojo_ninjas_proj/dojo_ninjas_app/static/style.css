@@ -1,0 +1,9 @@
+*{
+    margin: 0px;
+    }
+    #form_container{
+        padding-bottom: 10px;
+    }
+    #name{
+        font-weight: bold;
+    }

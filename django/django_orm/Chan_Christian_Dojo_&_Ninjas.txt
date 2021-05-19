@@ -1,0 +1,48 @@
+python manage.py makemigratons
+python manage.py migrate
+python manage.py shell
+from dojo_ninjas_app.models import *
+
+Dojo.objects.create(name = "Dojo 1", city = "Spokane", state = "WA")
+Dojo.objects.create(name = "Dojo 2", city = "Denver", state = "CO")
+Dojo.objects.create(name = "Dojo 3", city = "Phoenix", state = "AZ")
+
+to_delete = Dojo.objects.get(id = 1)
+to_delete.delete()
+to_delete = Dojo.objects.get(id = 2)
+to_delete.delete()
+to_delete = Dojo.objects.get(id = 3)
+to_delete.delete()
+
+Dojo.objects.create(name = "Dojo 4", city = "Seattle", state = "WA")
+Dojo.objects.create(name = "Dojo 5", city = "Colorado City", state = "CO")
+Dojo.objects.create(name = "Dojo 6", city = "Tempe", state = "AZ")
+
+dojo4 = Dojo.objects.get(id = 4)
+Ninja.objects.create(dojo = dojo4, first_name = "ninja", last_name = "one")
+Ninja.objects.create(dojo = dojo4, first_name = "ninja", last_name = "two")
+Ninja.objects.create(dojo = dojo4, first_name = "ninja", last_name = "three")
+dojo5 = Dojo.objects.get(id = 5)
+Ninja.objects.create(dojo = dojo5, first_name = "ninja", last_name = "four")
+Ninja.objects.create(dojo = dojo5, first_name = "ninja", last_name = "five")
+Ninja.objects.create(dojo = dojo5, first_name = "ninja", last_name = "six")
+dojo6 = Dojo.objects.get(id = 6)
+Ninja.objects.create(dojo = dojo6, first_name = "ninja", last_name = "seven")
+Ninja.objects.create(dojo = dojo6, first_name = "ninja", last_name = "eight")
+Ninja.objects.create(dojo = dojo6, first_name = "ninja", last_name = "nine")
+
+dojo4.ninjas.all()
+dojo6.ninjas.all()
+
+ninja_last = Ninja.objects.get(id = 9)
+ninja_last.dojo
+
+exit()
+python manage.py makemigratons
+1
+"Placeholder Description"
+python manage.py migrate
+python manage.py shell
+from dojo_ninjas_app.models import *
+
+Dojo.objects.create(name = "Dojo 7", city = "Madison", state = "WI", desc = "I am a dojo!")

@@ -1,0 +1,21 @@
+python manage.py shell
+
+User.objects.create(first_name = "Cassidy", last_name="Hills", email_address = "burner@mail.com", age = 25)
+User.objects.create(first_name = "James", last_name="Jonas", email_address = "daily@email.com", age = 32)
+User.objects.create(first_name = "John", last_name="Williams", email_address = "mail@email.com", age = 63)
+
+User.objects.all()
+
+User.objects.last()
+User.objects.first()
+
+update1 = User.objects.get(id = 3)
+update1.first_name = "Pancakes"
+update1.save()
+
+update2 = User.objects.get(id = 2)
+update2.delete()
+
+User.objects.all().order_by("first_name")
+
+User.objects.all().order_by("-first_name")

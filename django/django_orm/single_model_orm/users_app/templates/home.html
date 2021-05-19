@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <title>Users</title>
+    </head>
+    <body>
+        <div class="w-75 mx-auto">
+            <table class = "table table-striped border-dark">
+                <h1 class = "text-center">All the Users</h1>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+                {% for user in all_users %}
+                <tr>
+                    <th>{{user.id}}</th>
+                    <th>{{user.first_name}}</th>
+                    <th>{{user.last_name}}</th>
+                    <th>{{user.email_address}}</th>
+                    <th>{{user.age}}</th>
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <h1 class = "text-center">Create New User</h1>
+            {% if request.session.invalid_input %}
+                <h3 class = "text-center">Invalid User Input!</h3>
+            {% endif %}
+            <form class = "w-50 mx-auto" action="/register" method="post">
+                {% csrf_token %}
+                <div class = "row">
+                    <div class = "col">
+                        First Name<input class = "form-control" type="text" name="input_firstname">
+                        E-Mail<input class = "form-control" type="text" name="input_email">
+                    </div>
+                    <div class = "col">
+                        Last Name<input class = "form-control" type="text" name="input_lastname">
+                        Age<input class = "form-control" type="number" name="input_age">
+                    </div>
+                </div>
+                <div class = "text-center">
+                    <button  type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

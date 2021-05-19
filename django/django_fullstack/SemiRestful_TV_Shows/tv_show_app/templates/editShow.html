@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <span class = 'd-flex justify-content-end'><a href = "/">Go Back</a></span> 
+    {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+    {% endif %}
+        <h3 class = 'text-center'>Edit Show {{editing_show.id}}</h3>
+        <div class = 'mx-auto w-50'>
+            <form action="/shows/{{editing_show.id}}/update" method="POST">
+                {% csrf_token %}
+                Title:<input class = 'form-control' type="text" name="title" value = "{{editing_show.title}}">
+                <div class = "form-row">
+                    <div class = 'col'>
+                        Network: <input class = 'form-control' type="text" name="network" value = "{{editing_show.network}}">
+                    </div>
+                    <div class = 'col'>
+                        Release Date: <input class = 'form-control' type="date" name="release_date" value = "{{editing_show.release_date|date:'Y-m-d'}}">
+                    </div>
+                </div>
+                Description: <textarea class = 'form-control' name="desc" cols="30" rows="10">{{editing_show.desc}}</textarea>
+                <br>
+                <div class = "col text-center">
+                    <button type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+</body>
+</html>

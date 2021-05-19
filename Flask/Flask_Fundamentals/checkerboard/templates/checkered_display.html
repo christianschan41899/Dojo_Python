@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Checkerboard</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <style type="text/css">
+            #flex_container{
+                margin: auto;
+                width: {{width}}px;
+                height: {{height}}px;   
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Checkers ({{by_x}} x {{by_y}} Board)</h1>
+        <div id = "flex_container">
+            {% for i in range(by_y) %}
+                {% for j in range(by_x) %}
+                    {# Alternates Red on even columns and Black on odd columns in even rows, odd rows are Black on even columns and Red on Odd Columns. Ensures this works on both even and odd numbers of columns/rows #}
+                    {% if(i%2==0 and j%2==0)%}    
+                        <div class = "red_square"></div>
+                    {% endif %}
+                    {% if(i%2==0 and j%2!=0)%}    
+                        <div class = "black_square"></div>
+                    {% endif %}
+                    {% if(i%2!=0 and j%2==0) %}
+                        <div class = "black_square"></div>
+                    {% endif %}
+                    {% if(i%2!=0 and j%2!=0) %}
+                        <div class = "red_square"></div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </body>
+</html>
